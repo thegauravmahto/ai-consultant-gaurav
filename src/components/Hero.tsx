@@ -39,6 +39,11 @@ const Hero = () => {
     servicesSection?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Enhanced animated background elements */}
@@ -118,23 +123,35 @@ const Hero = () => {
         </div>
 
         {/* CTA Buttons with enhanced animations */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in animate-delay-500">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in animate-delay-500">
           <Button 
-            onClick={scrollToWork}
+            onClick={scrollToContact}
             size="lg" 
-            className="bg-white text-slate-900 hover:bg-blue-50 px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:rotate-1 group"
+            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:rotate-1 group"
           >
-            Explore My Work 
+            Book Discovery Call 
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button 
-            onClick={scrollToServices}
+            onClick={scrollToWork}
             variant="outline" 
             size="lg" 
             className="border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:-rotate-1 group"
           >
-            AI Transformation Services
+            Explore My Work
             <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
+          </Button>
+        </div>
+
+        {/* Additional CTA for Services */}
+        <div className="mb-16 animate-fade-in animate-delay-700">
+          <Button 
+            onClick={scrollToServices}
+            variant="ghost" 
+            className="text-blue-200 hover:text-white hover:bg-white/10 px-6 py-2 text-base font-medium rounded-lg backdrop-blur-sm transition-all duration-300 group"
+          >
+            View AI Transformation Services
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
 

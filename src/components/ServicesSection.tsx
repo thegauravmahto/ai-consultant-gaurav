@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Brain, Rocket, Code, ArrowRight, Sparkles } from 'lucide-react';
+import { Brain, Rocket, Code, ArrowRight, Sparkles, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const ServicesSection = () => {
@@ -54,10 +54,20 @@ const ServicesSection = () => {
               AI Future
             </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             Whether you're a startup looking to integrate AI or an enterprise seeking to transform operations, 
             I provide hands-on expertise to turn AI concepts into business value.
           </p>
+          
+          {/* Quick CTA in header */}
+          <Button 
+            onClick={handleBookCall}
+            className="bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-6 py-3 rounded-lg transition-all duration-300 group"
+          >
+            <Calendar className="w-4 h-4 mr-2" />
+            Schedule Your Discovery Call
+            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
 
         {/* Services grid */}
@@ -85,7 +95,7 @@ const ServicesSection = () => {
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-blue-200 text-sm">
                       <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-3 group-hover:bg-purple-400 transition-colors" />
@@ -93,6 +103,17 @@ const ServicesSection = () => {
                     </li>
                   ))}
                 </ul>
+
+                {/* CTA per service card */}
+                <Button 
+                  onClick={handleBookCall}
+                  variant="outline" 
+                  size="sm"
+                  className="w-full border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all duration-300 group/btn"
+                >
+                  Discuss This Service
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
 
                 {/* Decorative gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

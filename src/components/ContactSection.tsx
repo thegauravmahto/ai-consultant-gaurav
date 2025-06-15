@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Linkedin, Send, Sparkles, MessageCircle } from 'lucide-react';
+import { Mail, Linkedin, Send, Sparkles, MessageCircle, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -49,7 +49,7 @@ const ContactSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Section header */}
+        {/* Section header with prominent CTA */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
@@ -61,10 +61,28 @@ const ContactSection = () => {
               Let's Build
             </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
             Whether you're ready to transform your business with AI, need strategic guidance, 
             or just want to connect with a fellow innovator—I'm here to help.
           </p>
+          
+          {/* Prominent Discovery Call CTA */}
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Calendar className="w-6 h-6 text-blue-400" />
+              <h3 className="text-2xl font-bold text-white">Ready to Start?</h3>
+            </div>
+            <p className="text-blue-100 mb-6">
+              Book a 30-minute discovery call to discuss your AI transformation goals and explore how we can work together.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 group"
+            >
+              Book Discovery Call Now
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -119,6 +137,22 @@ const ContactSection = () => {
                 Mention your specific AI challenge or opportunity in your message. 
                 I respond fastest to concrete problems that need solving!
               </p>
+            </div>
+
+            {/* Alternative CTA */}
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+              <h4 className="text-white font-semibold mb-3">Prefer to Schedule Directly?</h4>
+              <p className="text-blue-100 text-sm mb-4">
+                Skip the form and book a discovery call directly to discuss your AI transformation needs.
+              </p>
+              <Button 
+                variant="outline"
+                className="border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all duration-300 group"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Book Discovery Call
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
           </div>
 
