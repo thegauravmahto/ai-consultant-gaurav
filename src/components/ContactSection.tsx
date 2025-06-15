@@ -1,11 +1,9 @@
-
 import React, { useState } from 'react';
 import { Mail, Linkedin, Send, Sparkles, MessageCircle, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,39 +11,41 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you within 24 hours.",
+        description: "Thank you for reaching out. I'll get back to you within 24 hours."
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
       setIsSubmitting(false);
     }, 1500);
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+  return <section id="contact" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
         <div className="absolute inset-0 opacity-40" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+      }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -75,10 +75,7 @@ const ContactSection = () => {
             <p className="text-blue-100 mb-6">
               Book a 30-minute discovery call to discuss your AI transformation goals and explore how we can work together.
             </p>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 group"
-            >
+            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 group">
               Book Discovery Call Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -98,10 +95,7 @@ const ContactSection = () => {
 
             {/* Contact methods */}
             <div className="space-y-6">
-              <a
-                href="mailto:gauravdhirm@gmail.com"
-                className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
-              >
+              <a href="mailto:gauravdhirm@gmail.com" className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white">
                   <Mail className="w-6 h-6" />
                 </div>
@@ -111,12 +105,7 @@ const ContactSection = () => {
                 </div>
               </a>
 
-              <a
-                href="https://linkedin.com/in/gauravmahto"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
-              >
+              <a href="https://linkedin.com/in/gauravmahto" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300 group">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center text-white">
                   <Linkedin className="w-6 h-6" />
                 </div>
@@ -145,10 +134,7 @@ const ContactSection = () => {
               <p className="text-blue-100 text-sm mb-4">
                 Skip the form and book a discovery call directly to discuss your AI transformation needs.
               </p>
-              <Button 
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white hover:text-slate-900 transition-all duration-300 group"
-              >
+              <Button variant="outline" className="border-white/20 hover:bg-white transition-all duration-300 group text-zinc-950">
                 <Calendar className="w-4 h-4 mr-2" />
                 Book Discovery Call
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -162,57 +148,25 @@ const ContactSection = () => {
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Input
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20"
-                  required
-                />
+                <Input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20" required />
               </div>
               
               <div>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20"
-                  required
-                />
+                <Input type="email" name="email" placeholder="Your email" value={formData.email} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20" required />
               </div>
               
               <div>
-                <Textarea
-                  name="message"
-                  placeholder="Tell me about your project or idea..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={5}
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20 resize-none"
-                  required
-                />
+                <Textarea name="message" placeholder="Tell me about your project or idea..." value={formData.message} onChange={handleInputChange} rows={5} className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-blue-400 focus:ring-blue-400/20 resize-none" required />
               </div>
               
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none"
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center gap-2">
+              <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:transform-none">
+                {isSubmitting ? <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     Sending...
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-2">
+                  </div> : <div className="flex items-center gap-2">
                     Send Message
                     <Send className="w-5 h-5" />
-                  </div>
-                )}
+                  </div>}
               </Button>
             </form>
           </div>
@@ -225,8 +179,6 @@ const ContactSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;

@@ -1,77 +1,65 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Sparkles, Zap, TrendingUp, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   const [currentPhase, setCurrentPhase] = useState(0);
-
-  const businessPhases = [
-    "Current Processes",
-    "AI Integration",
-    "Accelerated Growth"
-  ];
-
+  const businessPhases = ["Current Processes", "AI Integration", "Accelerated Growth"];
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentPhase((prev) => (prev + 1) % businessPhases.length);
+      setCurrentPhase(prev => (prev + 1) % businessPhases.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
   const scrollToWork = () => {
     const workSection = document.getElementById('case-studies');
-    workSection?.scrollIntoView({ behavior: 'smooth' });
+    workSection?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
-    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+    servicesSection?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    contactSection?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Enhanced animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-            transition: 'transform 0.5s ease-out'
-          }}
-        />
-        <div 
-          className="absolute top-1/4 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl animate-pulse"
-          style={{
-            transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * -0.01}px)`,
-            transition: 'transform 0.3s ease-out'
-          }}
-        />
-        <div 
-          className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl animate-float"
-          style={{
-            transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px)`,
-            transition: 'transform 0.4s ease-out'
-          }}
-        />
+        <div className="absolute w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{
+        transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
+        transition: 'transform 0.5s ease-out'
+      }} />
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-2xl animate-pulse" style={{
+        transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * -0.01}px)`,
+        transition: 'transform 0.3s ease-out'
+      }} />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl animate-float" style={{
+        transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px)`,
+        transition: 'transform 0.4s ease-out'
+      }} />
         <div className="absolute inset-0 opacity-40" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+      }} />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -124,20 +112,11 @@ const Hero = () => {
 
         {/* CTA Buttons with enhanced animations */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 animate-fade-in animate-delay-500">
-          <Button 
-            onClick={scrollToContact}
-            size="lg" 
-            className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:rotate-1 group"
-          >
+          <Button onClick={scrollToContact} size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:rotate-1 group">
             Book Discovery Call 
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button 
-            onClick={scrollToWork}
-            variant="outline" 
-            size="lg" 
-            className="border-2 border-white/30 text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:-rotate-1 group"
-          >
+          <Button onClick={scrollToWork} variant="outline" size="lg" className="border-2 border-white/30 hover:bg-white px-8 py-4 text-lg font-semibold rounded-xl backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:-rotate-1 group text-zinc-950">
             Explore My Work
             <Sparkles className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform" />
           </Button>
@@ -145,11 +124,7 @@ const Hero = () => {
 
         {/* Additional CTA for Services */}
         <div className="mb-16 animate-fade-in animate-delay-700">
-          <Button 
-            onClick={scrollToServices}
-            variant="ghost" 
-            className="text-blue-200 hover:text-white hover:bg-white/10 px-6 py-2 text-base font-medium rounded-lg backdrop-blur-sm transition-all duration-300 group"
-          >
+          <Button onClick={scrollToServices} variant="ghost" className="text-blue-200 hover:text-white hover:bg-white/10 px-6 py-2 text-base font-medium rounded-lg backdrop-blur-sm transition-all duration-300 group">
             View AI Transformation Services
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -178,8 +153,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
